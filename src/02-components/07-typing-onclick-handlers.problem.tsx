@@ -3,6 +3,7 @@ import React from 'react';
 interface ButtonProps {
   className: string;
   children: React.ReactNode;
+  onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export const Button = ({ children, className, onClick }: ButtonProps) => {
@@ -12,3 +13,9 @@ export const Button = ({ children, className, onClick }: ButtonProps) => {
     </button>
   );
 };
+
+const Parent = () => {
+  return (
+    <Button className='something' onClick={() => {}}>Children</Button>
+  )
+}
