@@ -3,9 +3,16 @@ import { useEffect } from "react";
 export const useTimeout = (timerMs: number) => {
   useEffect(
     () =>
-      setTimeout(() => {
+      {
+        const timeoutId = setTimeout(() => {
         console.log("Done!");
-      }, timerMs),
+        }, timerMs)
+
+        return () => {
+          clearTimeout(timeoutId)
+        }            
+    
+      },
     [timerMs],
   );
 };
